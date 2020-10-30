@@ -8,5 +8,5 @@ This repository is for the 2020/2021 Data Structures and Algorithyms coursework 
 See the specification on blackboard.
 
 # Repository guidelines
-All work must be completed on individual branches.
+All work must be completed on relavent branches, and never directly to master.
 Only completed and peer reviewed content will be allowed to be merged to the master.
