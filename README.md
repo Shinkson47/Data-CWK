@@ -9,4 +9,7 @@ See the specification on blackboard.
 
 # Repository guidelines
 All work must be completed on relavent branches, and never directly to master.
-Only completed and peer reviewed content will be allowed to be merged to the master.
+Only completed content that's been peer reviewed by at least two others will be allowed to be merged to the master.
+
+Code must also pass codacy checks before it may be merged. 
+Check what codacy says about your pull request, and ensure your code is top notch.
