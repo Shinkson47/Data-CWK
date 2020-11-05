@@ -52,4 +52,28 @@ public class StudentPool extends Pool<Student> {
             return null;
         }
     }
+
+    /**
+     * Instantiates many students into the global pool.
+     * @param exampleStudents
+     */
+    public static void createManyStudents(String[] exampleStudents) {
+        for (String s : exampleStudents){
+            if (Global.findByP(s) != null)
+                continue;
+            else
+                new Student(s);
+        }
+    }
+
+    public void setRelationship(String _mentor, String _mentee){
+        Student mentor = findByP(_mentor);
+        if (mentor == null) return;
+
+        Student mentee = findByP(_mentee);
+        if (mentee == null) return;
+
+        mentee.setMentor(mentor);
+        mentor.addMentee(mentee);
+    }
 }

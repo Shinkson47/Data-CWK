@@ -17,34 +17,38 @@ import java.util.ArrayList;
  * @since v1
  */
 public class main {
+
+    /**
+     * All students from the specification example.
+     */
+    public static String[] exampleStudents = new String[]{
+            // Level 6
+            "P2531111",
+            "P2530001",
+
+            // Level 5
+            "P2531120",
+            "P2532211",
+            "P2534141",
+
+            "P2530230",
+
+            // Level 4
+            "P2530201",
+            "P2530150",
+            "P2530190",
+            "P2530210",
+            "P2530250"
+    };
+
     public static void main(String[] args) {
 
-        //#region Populate student pool.
-        // Level 6
-        Student mentor =
-        new Student("P2531111");
-        new Student("P2530001");
+        // Define all students, ignoring relationships.
+        StudentPool.createManyStudents(exampleStudents);
 
-        // Level 5
-        Student mentee =
-        new Student("P2531120");
-        new Student("P2532211");
-        new Student("P2534141");
-
-        // Unassigned level 5
-        new Student("P2530230");
-
-        // Level 4
-        new Student("P2530201");
-        new Student("P2530150");
-        new Student("P2530190");
-        new Student("P2530210");
-        new Student("P2530250");
-        //#endregion
-
-        //TODO
-
-        //STOPSHIP
+        // Get one mentor / mentee relationship pair.
+        Student mentee = StudentPool.Global.findByP("P2531120");
+        Student mentor = StudentPool.Global.findByP("P2530001");                                                     // This isn't the mentor defined in the spec for 2531120, but it'll be reassigned to correct it later.
 
         //• Assign student mentors to mentees.
         //• Reassign mentors
@@ -54,8 +58,8 @@ public class main {
         boolean hasMentor = mentee.hasMentor();
 
         //• Reassign mentees
-        Student newMentor = StudentPool.Global.findByP("P2531120");
-        mentor.transferMenteesTo(newMentor);
+        Student newMentor = StudentPool.Global.findByP("P2531111");                                                  // This is the correct mentor for mentee 2531120
+        mentor.transferMenteesTo(newMentor);      // FIXME i dont think this works.
 
         //• Find a mentor for a given mentee
         mentor = mentee.getMentor();
@@ -75,5 +79,22 @@ public class main {
         //• Let the user search for a mentee.
         Student locatedMentee = StudentPool.Global.findMenteeByP("P2531120");
 
+
+
+        // Define all relationships
+        StudentPool.Global.setRelationship("P2531111", "P25301120");
+        StudentPool.Global.setRelationship("P2531111", "P25302211");
+
+        StudentPool.Global.setRelationship("P2530001", "P2534141");
+        StudentPool.Global.setRelationship("P2530001", "P2530230");
+
+        StudentPool.Global.setRelationship("P2531120", "P2530201");
+
+        StudentPool.Global.setRelationship("P2532211", "P2530150");
+        StudentPool.Global.setRelationship("P2532211", "P2530190");
+        StudentPool.Global.setRelationship("P2532211", "P2530210");
+
+        StudentPool.Global.setRelationship("P2534141", "P2530229");
+        StudentPool.Global.setRelationship("P2534141", "P2530250");
     }
 }
