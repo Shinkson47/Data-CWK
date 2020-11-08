@@ -50,7 +50,7 @@ public abstract class BiNode<T extends BiNode> extends LinearNode<BiNode<T>> {
         last.setNext(this);
     }
 
-    protected void clearLast() {
+    public void clearLast() {
         setLast(null);
     }
 

@@ -70,4 +70,44 @@ public class Student extends CollectiveNodePoolItem<Student, StudentPool> {
     }
 
 
+    // TODO these're not in the UML.
+    /**
+     * <h2>Determines if this student is a mentee.</h2>
+     * @return true if the student has a mentor.
+     */
+    public boolean isMentee(){
+        return hasMentor();
+    }
+
+    /**
+     * <h2>Determines if the student is a mentor.</h2>
+     * @return true if the student has more than zero mentees.
+     */
+    public boolean isMentor(){
+        return getMentees().size() > 0;
+    }
+
+    /**
+     * <h2>Determines if a string may be concidered a valid p Number.</h2>
+     * To be valid, it <i>s</i> must;
+     * <blockquote>
+     *     - Start with a capital '<b>P</b>'<br>
+     *     - Be followed ONLY by any quantity of numbers, between 0-9.
+     *     <br><br> The following are all valid within this test; <br>
+     * <list>
+     *     <br>P1,
+     *     <br>P01,
+     *     <br>P1455847776,
+     *     <br>P2540338
+     * </list>
+     * </blockquote>
+     *
+     * <b>Raw REGEX: P[0-9]*</b>
+     * @param s A string to test.
+     * @return true if it matches the regex.
+     */
+    public static boolean isValidPNumber(String s) {
+        return s.matches("P[0-9]*");
+    }
+
 }

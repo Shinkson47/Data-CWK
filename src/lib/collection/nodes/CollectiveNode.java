@@ -43,8 +43,12 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
     }
 
     /**
-     * <h2>Get the first child</h2>
-     * @return the child found at index 0.
+     * {@inheritDoc}
+     *
+     * BiNode Override. If any children are assigned, returns the first. Otherwise null.
+     *
+     * @deprecated since collectiveNode revolves around collections of children.
+     * @return the child found at index 0, null if there are no children.
      * @implNote May be null if there is no children.
      */
     @Deprecated
@@ -52,6 +56,18 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
     public LinearNode<BiNode<CollectiveNode>> getNext() {
         return (hasChildren()) ? getChildren().get(0) : null;
     }
+
+    /**
+     * Returns the next element from the super BiNode.
+     *
+     * @deprecated since Collective Node supercedes with collections of next.
+     * @return (BiNode) super.getNext.
+     */
+    @Deprecated
+    public LinearNode<BiNode<CollectiveNode>> superGetNext(){
+        return super.getNext();
+    }
+
 
     /**
      * {@inheritDoc}
