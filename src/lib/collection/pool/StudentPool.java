@@ -21,10 +21,6 @@ import java.util.Objects;
 public class StudentPool extends Pool<Student> {
     public static StudentPool Global = new StudentPool();
 
-    // TODO Static wrappers
-    // TODO docs
-    // Rest of the methods.
-
     /**
      * <h2>Finds a student within the pool, using thier p number.</h2>
      * @apiNote Rejects call <b>P</b> is not a valid P Number according to {@link Student#isValidPNumber(String)}

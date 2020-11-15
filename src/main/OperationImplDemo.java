@@ -65,7 +65,7 @@ public class OperationImplDemo {
         //• Reassign mentors
         //• Reassign mentees
         Student newMentor = StudentPool.Global.findByP("P2531111");                                                  // This is the correct mentor for mentee 2531120
-        mentor.transferMenteesTo(newMentor);      // FIXME i don't think this works correctly.
+        mentor.transferMenteesTo(newMentor);      // FIXME i don't think this works correctly. Need to test.
 
         //• Find a mentor for a given mentee
         mentor = mentee.getMentor();
