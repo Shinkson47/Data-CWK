@@ -27,13 +27,18 @@ public class Student extends CollectiveNodePoolItem<Student, StudentPool> {
     //#region fields
     /**
      * The local student identification in the DMU standard; (P/X)#######
-     * @see Student#isValidPNumber(String);
+     * @see Student#isValidPNumber(String)
      */
     private String pNumber;
 
     //#endregion fields
 
     //#region constructor
+
+    /**
+     * Creates a new student, and adds them to {@link StudentPool#Global}
+     * @param pNumber The pNumber of this Student.
+     */
     public Student(String pNumber) {
         super(StudentPool.Global);
         setpNumber(pNumber);
