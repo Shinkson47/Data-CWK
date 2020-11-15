@@ -3,7 +3,7 @@ package lib.collection.nodes;
 import java.util.ArrayList;
 
 /**
- * <h1>A Bi-Directional node with one parent, but multiple children</h1>
+ * <h1>A Bi-Directional node with one parent, and multiple children</h1>
  * <br>
  * <p>
  * This collective Node creates a one-to-many relationship between a parenting BiNode
@@ -47,7 +47,7 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
      *
      * BiNode Override. If any children are assigned, returns the first. Otherwise null.
      *
-     * @deprecated since collectiveNode revolves around collections of children.
+     * @deprecated since collectiveNode revolves around collections of children, not 'Next'
      * @return the child found at index 0, null if there are no children.
      * @implNote May be null if there is no children.
      */
@@ -82,7 +82,8 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
     /**
      * <h2>Add a new child node</h2>
      * Adds a new child to this collection, changing it's last node to be this node instance;
-     * thus declaring to the new child that this is the new parent.
+     * thus declaring to the new child that this is the new parent.<br>
+     * Silently rejects call if newChild is null.
      * @param newChild The child to add as a child.
      */
     public void addChild(T newChild){
@@ -107,10 +108,10 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
      */
     public void decompose(){
         if (hasChildren())                                                                                              // Break links to all child nodes
-            for (T s : children) {
+            children.forEach(s -> {
                 s.clearLast();
                 children.remove(s);
-            }
+            });
 
         if (hasNext())                                                                                                  // There shouldn't be any active link via next on a collective node, but just in case.
             clearNext();

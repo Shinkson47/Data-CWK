@@ -44,10 +44,10 @@ public abstract class BiNode<T extends BiNode> extends LinearNode<BiNode<T>> {
      * @param newLast the new link to store.
      */
     public void setLast(BiNode<T> newLast) {
-        if (last != null) last.clearNext();
-        last = newLast;
-        if (last == null) return;
-        last.setNext(this);
+        if (last != null) last.clearNext(); // If there is a last element, clear its pointer to this.
+        last = newLast;                     // store the new last element, replacing the old.
+        if (last == null) return;           // If the param was not null,
+        last.setNext(this);                 // Set the next element of the new last to be this.
     }
 
     public void clearLast() {

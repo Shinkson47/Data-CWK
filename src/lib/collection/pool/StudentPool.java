@@ -37,15 +37,16 @@ public class StudentPool extends Pool<Student> {
 
     /**
      * <h2>Finds a student within the pool, using thier p number.</h2>
-     * Rejects call if assertP is true AND <b>P</b> is not a valid P Number according to {@link Student#isValidPNumber(String)}
+     * Silently rejects call if assertP is true AND <b>P</b> is not a valid P Number according to {@link Student#isValidPNumber(String)}
      * @param P The students p Number.
      * @param assertP If true, will validate that the string is a valid P Number.
      * @return The matching student, null if no student matched or <b>P</b> was tested and found to be an invalid P Number
      * @deprecated {@link StudentPool#findByP(String)} should almost always be used. Only use this signature to disable p number validation if it's absolutely required, and handled elsewhere.
+     *
      */
     @Deprecated
     public Student findByP(String P, boolean assertP){
-        if (assertP && !Student.isValidPNumber(P)) return null; // Double & for efficiency. P number will only be evaluated if assertP is true.
+        if (assertP && !Student.isValidPNumber(P)) return null;     // && for efficiency. P number will only be evaluated if assertP is true.
         for (Student s : this)
             if (s.getpNumber().equals(P))
                 return s;
@@ -69,12 +70,10 @@ public class StudentPool extends Pool<Student> {
      * </blockquote>
      */
     public Student findMentorByP(String p){
-        Student s = findByP(p);
-        try {
-            return (s.isMentor()) ? s : null;
-        } catch (NullPointerException e) {  // No student matches P
-            return null;
-        }
+        Student s = findByP(p);             // Get student, if any matches.
+        return (s == null) ? null :         // No student matched. Return null.
+                s.isMentor() ? s : null;    // There was a matching student, return them ONLY if they're a mentor
+
     }
 
     /**
@@ -94,17 +93,14 @@ public class StudentPool extends Pool<Student> {
      */
     public Student findMenteeByP(String p){
         Student s = findByP(p);
-        try {
-            return (s.isMentee()) ? s : null;
-        } catch (NullPointerException e) {  // No student matches P
-            return null;
-        }
+        return (s == null) ? null :
+            s.isMentee() ? s : null;
     }
 
 
     /**
      * <h2>Creates a mentee/mentor relationship between two students in the pool</h2>
-     * By adding setting <b>_mentee</b>'s mentor to <b>_mentor</b>, and adding <b>_mentee</b> to <b>_mentor</b>'s mentees.
+     * By setting <b>_mentee</b>'s mentor to <b>_mentor</b>, and adding <b>_mentee</b> to <b>_mentor</b>'s mentees.
      * <br>
      * @apiNote Rejects call if <b>_mentor</b> equals <b>_mentee</b>, if either of the p's are not valid, or if either student does not exist.
      * @param _mentor The P Number of the student to be considered the <u><b>mentor</b></u> in this relationship.
@@ -114,10 +110,21 @@ public class StudentPool extends Pool<Student> {
         if  (_mentee.equals(_mentor)) return;           // Cannot create a two entity relationship within one entity.
 
         Student mentor = findByP(_mentor);              // This call inertly tests that the p number is valid, and that the student exists.
-        if (mentor == null) return;
-
         Student mentee = findByP(_mentee);
-        if (mentee == null) return;
+
+        setRelationship(mentor, mentee);
+    }
+
+    /**
+     * <h2>Creates the mentor / mentee relationship between two provided students.</h2>
+     * <br>
+     * By adding setting <b>mentee</b>'s mentor to <b>mentor</b>, and adding <b>mentee</b> to <b>mentor</b>'s mentees.
+     * @param mentor The student that will be the mentor in this relationship
+     * @param mentee The student that will be the mentee in this relationship
+     */
+    public static void setRelationship(Student mentor, Student mentee){
+        Objects.requireNonNull(mentee);
+        Objects.requireNonNull(mentor);
 
         mentee.setMentor(mentor);
         mentor.addMentee(mentee);
@@ -128,21 +135,22 @@ public class StudentPool extends Pool<Student> {
      * <h2>Instantiates many students into {@link StudentPool#Global}</h2>
      * Creates many students from a list of P Numbers.
      * <br>Skips P Numbers if they're not valid p numbers, or if a student with that number already exists.
-     * @param exampleStudents
+     * @param students
      */
-    public static void createManyStudents(String[] exampleStudents) {
-        for (String s : exampleStudents){
+    public static void createManyStudents(String... students) {
+        for (String s : students){
+            if (Student.isValidPNumber(s) || Global.findByP(s, false) == null)
+                new Student(s);
+
             /*
                 Find by P also validates P, however if a p number is not valid this would assume
                 that the student doesn't exist and will attempt to create an invalid PNumbered student.
 
-                assertP: false prevents validation of s's P, so we can inversely test for it here, and skip directly
+                assertP: false prevents validation of s' P, so we can inversely test for it here, and skip directly
                 if the p number is not valid.
 
                 Double pipeline for efficiency. This will only search for a student if the p number is valid.
              */
-            if (Student.isValidPNumber(s) || Global.findByP(s, false) == null)
-                new Student(s);
         }
     }
     //#endregion static
