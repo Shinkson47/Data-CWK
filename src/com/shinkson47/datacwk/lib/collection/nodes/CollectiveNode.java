@@ -1,4 +1,4 @@
-package lib.collection.nodes;
+package com.shinkson47.datacwk.lib.collection.nodes;
 
 import java.util.ArrayList;
 
@@ -88,6 +88,7 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
      */
     public void addChild(T newChild){
         if (newChild == null) return;
+        if (children.contains(newChild)) return;                                                                        // Ignore if already has as child.
         children.add(newChild);
         newChild.setLast(this);
     }
@@ -107,16 +108,21 @@ public class CollectiveNode<T extends BiNode> extends BiNode<CollectiveNode> {
      * @implNote For safety, this also clears super(BiNode).next, even though next isn't intended to be used on a collective node.
      */
     public void decompose(){
-        if (hasChildren())                                                                                              // Break links to all child nodes
-            children.forEach(s -> {
+        if (hasChildren()) {                                                                                            // Break links to all child nodes
+            ArrayList<BiNode<?>> concurrentChildren = new ArrayList(children);
+            concurrentChildren.forEach(s -> {
                 s.clearLast();
                 children.remove(s);
             });
+        }
 
         if (hasNext())                                                                                                  // There shouldn't be any active link via next on a collective node, but just in case.
             clearNext();
 
-        if (hasLast())                                                                                                  // Break links to parent
+
+        if (hasLast()) {                                                                                                // Break links to parent
+            getLast().clearNext();
             clearLast();
+        }
     }
 }

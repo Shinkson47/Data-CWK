@@ -1,4 +1,4 @@
-package lib.collection.nodes;
+package com.shinkson47.datacwk.lib.collection.nodes;
 
 /**
  * <h1>A linked list node</h1>

@@ -1,8 +1,8 @@
-package lib.collections.nodes;
+package com.shinkson47.datacwk.lib.collections.nodes;
 
-import lib.collection.nodes.BiNode;
-import lib.collection.nodes.CollectiveNode;
-import lib.student.Student;
+import com.shinkson47.datacwk.lib.collection.nodes.BiNode;
+import com.shinkson47.datacwk.lib.collection.nodes.CollectiveNode;
+import com.shinkson47.datacwk.lib.student.Student;
 import org.junit.Assert;
 import org.junit.Test;
 import sun.jvm.hotspot.runtime.StubRoutines;
