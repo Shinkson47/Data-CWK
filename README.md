@@ -7,6 +7,21 @@ CTEC2909 Data structures coursework
 This repository is for the 2020/2021 Data Structures and Algorithyms coursework team project.
 See the specification on blackboard.
 
+# A Note on Execution
+The repo provided (or found at https://github.com/Shinkson47/Data-CWK) has project metas configured for both Eclipse and IntelliJ. 
+
+__The Class path requires:__
+- JUnit (4)
+- JavaFX
+- OPEX
+
+OPEX is a library of my own creation which is used to simplify showing a JavaFX utility window. It’s found in /lib/OPEX.jar, within the repo. 
+
+__nb__ Showing the GUI is the only use of the library in this repo.
+
+__There are two mains,__ _OperationImplDemo#main_, & _GUIDemo#main_.
+_OperationImplDemo_ is a __source only demo__, showing how to invoke operations on the data structure; whilst GUIDemo is a utility which allows a user to manually manipulate it.
+
 # Repository guidelines
 All work must be completed on relavent branches, and never directly to master.
 Only completed content that's been peer reviewed by at least two others will be allowed to be merged to the master.
