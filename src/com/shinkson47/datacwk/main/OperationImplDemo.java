@@ -1,17 +1,25 @@
-package main;
+package com.shinkson47.datacwk.main;
 
-import lib.collection.pool.StudentPool;
-import lib.student.Student;
+import com.shinkson47.datacwk.lib.collection.pool.StudentPool;
+import com.shinkson47.datacwk.lib.student.Student;
+import jdk.nashorn.internal.objects.Global;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
- * <h1>Mentee / Mentor operation demonstration source.</h1>
+ * <h1>Non graphical operation implementation demo</h1>
  * <br>
+ *      <blockquote>
+ *     <u>
+ *         <i>
+ *             This class does not accept any input, or provide any output. see {@link GUIDemo}
+ *         </i>
+ *     </u>
+ *     </blockquote>
+ * <br><br>
  * <p>
- *  Demonstrates creating and operating on a mentor / mentee demonstration.
+ *  Source which shows how operations may be performed on the data structure. <br>
+ *  for an interactive structure utility, execute the main found in {@link GUIDemo}
  * </p>
  * @author <a href="https://www.shinkson47.in">Jordan T. Gray on 03/11/2020</a>
  * @version 1
@@ -20,36 +28,25 @@ import java.util.List;
 public class OperationImplDemo {
     // STOPSHIP : 8/11/2020 ; For demonstration, not distribution.
 
-    /**
-     * All students from the specification example.
-     */
-    public static String[] exampleStudents = new String[]{
-            // Level 6
-            "P2531111",
-            "P2530001",
-
-            // Level 5
-            "P2531120",
-            "P2532211",
-            "P2534141",
-
-            "P2530230",
-
-            // Level 4
-            "P2530201",
-            "P2530150",
-            "P2530190",
-            "P2530210",
-            "P2530250"
-    };
-
     public static void main(String[] args) {
 
+        System.out.println("This class does not accept any input, or provide any output; it's purely a source demonstration, " +
+                "showing how functions can be performed with code. ");
+
+        System.out.println("see com.shinkson47.datacwk.main.GUIDemo for an interactive graphical tool.");
         /*
             This call creates all students from a list of p numbers, collecting them in the global student pool,
             with complete ignorance to relationships, which will be defined later.
          */
-        StudentPool.createManyStudents(exampleStudents);
+        StudentPool.createManyStudents(GlobalData.SPEC_TABLE_ONE);
+
+        /*
+         Define all relationships declared within the specification.
+
+         Given the consistency with this call, this could be easily automated in some way to define all students and relationships in memory,
+         i.e from a saved file, if writing students to disk is ever implemented.
+         */
+        GlobalData.CreateDefaultRelationships();
 
         // Get one mentor / mentee relationship pair for demonstration.
         Student mentee = StudentPool.Global.findByP("P2531120");
@@ -96,35 +93,5 @@ public class OperationImplDemo {
         //• Let the user search for a mentee.
         // Uses findByP, but only returns the matching student if they're a mentee.
         Student locatedMentee = StudentPool.Global.findMenteeByP("P2531120");
-
-
-        /*
-         Define all relationships declared within the specification.
-
-         Given the consistency with this call, this could be easily automated in some way to define all students and relationships in memory,
-         i.e from a saved file, if writing students to disk is ever implemented.
-         */
-
-        // Level 6
-            // P2531111, Two mentees.
-            StudentPool.Global.setRelationship("P2531111", "P25301120");
-            StudentPool.Global.setRelationship("P2531111", "P25302211");
-
-            // P2530001, Two mentees
-            StudentPool.Global.setRelationship("P2530001", "P2534141");
-            StudentPool.Global.setRelationship("P2530001", "P2530230");
-
-        // Level 5
-            // P2531120, One mentee
-            StudentPool.Global.setRelationship("P2531120", "P2530201");
-
-            // P2530150, Three mentees
-            StudentPool.Global.setRelationship("P2532211", "P2530150");
-            StudentPool.Global.setRelationship("P2532211", "P2530190");
-            StudentPool.Global.setRelationship("P2532211", "P2530210");
-
-            // P2534141, Two mentees.
-            StudentPool.Global.setRelationship("P2534141", "P2530229");
-            StudentPool.Global.setRelationship("P2534141", "P2530250");
     }
 }

@@ -1,7 +1,7 @@
-package lib.collection.pool;
+package com.shinkson47.datacwk.lib.collection.pool;
 
-import lib.collection.nodes.BiNode;
-import lib.collection.nodes.CollectiveNode;
+import com.shinkson47.datacwk.lib.collection.nodes.BiNode;
+import com.shinkson47.datacwk.lib.collection.nodes.CollectiveNode;
 
 /**
  * <h1>CollectiveNode & PoolItem aggregate</h1>

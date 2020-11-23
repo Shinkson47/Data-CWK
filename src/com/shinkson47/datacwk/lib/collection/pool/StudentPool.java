@@ -1,9 +1,8 @@
-package lib.collection.pool;
+package com.shinkson47.datacwk.lib.collection.pool;
 
-import lib.collection.nodes.CollectiveNode;
-import lib.collection.pool.Pool;
-import lib.student.Student;
+import com.shinkson47.datacwk.lib.student.Student;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -109,6 +108,17 @@ public class StudentPool extends Pool<Student> {
         Student mentee = findByP(_mentee);
 
         setRelationship(mentor, mentee);
+    }
+
+    /**
+     * @return a list of all students in the pool that have no mentor.
+     */
+    public ArrayList<Student> findAllRoot(){
+        ArrayList<Student> result = new ArrayList<>();
+        for (Student s : this)
+            if (!s.hasMentor()) result.add(s);
+
+        return result;
     }
 
     /**

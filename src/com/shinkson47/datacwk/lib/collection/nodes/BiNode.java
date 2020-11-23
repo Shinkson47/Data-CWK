@@ -1,4 +1,4 @@
-package lib.collection.nodes;
+package com.shinkson47.datacwk.lib.collection.nodes;
 
 /**
  * <h1>A Bi-Directional linked list node</h1>
@@ -53,8 +53,6 @@ public abstract class BiNode<T extends BiNode> extends LinearNode<BiNode<T>> {
     public void clearLast() {
         setLast(null);
     }
-
-
 
     //#endregion
 

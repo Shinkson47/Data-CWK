@@ -1,10 +1,9 @@
-package lib.student;
+package com.shinkson47.datacwk.lib.student;
 
-import lib.collection.nodes.CollectiveNode;
-import lib.collection.pool.CollectiveNodePoolItem;
-import lib.collection.pool.StudentPool;
+import com.shinkson47.datacwk.lib.collection.nodes.CollectiveNode;
+import com.shinkson47.datacwk.lib.collection.pool.CollectiveNodePoolItem;
+import com.shinkson47.datacwk.lib.collection.pool.StudentPool;
 
-import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -163,7 +162,8 @@ public class Student extends CollectiveNodePoolItem<Student, StudentPool> {
     public void transferMenteesTo(Student newMentor){
         Objects.requireNonNull(newMentor);
         if(!hasChildren()) return;
-        getChildren().forEach(student -> student.setMentor(newMentor));
+        getChildren().forEach(student -> pool.setRelationship(newMentor, student));
+        getChildren().clear();
     }
 
     /**
@@ -177,6 +177,11 @@ public class Student extends CollectiveNodePoolItem<Student, StudentPool> {
         deregisterSelf();
     }
 
+    @Override
+    public void decompose(){
+        if (hasMentor()) getMentor().getChildren().remove(this);
+        super.decompose();
+    }
 
     // TODO these're not in the UML.
     /**

@@ -1,4 +1,4 @@
-package lib.collection.pool;
+package com.shinkson47.datacwk.lib.collection.pool;
 
 import java.util.ArrayList;
 
