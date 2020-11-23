@@ -162,7 +162,8 @@ public class Student extends CollectiveNodePoolItem<Student, StudentPool> {
     public void transferMenteesTo(Student newMentor){
         Objects.requireNonNull(newMentor);
         if(!hasChildren()) return;
-        getChildren().forEach(student -> student.setMentor(newMentor));
+        getChildren().forEach(student -> pool.setRelationship(newMentor, student));
+        getChildren().clear();
     }
 
     /**

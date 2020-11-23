@@ -65,7 +65,7 @@ public class GUIDemo extends FXMLMain<Controller> {
      */
     @Override
     protected void postLoad() {
-        controller.showAlert(Alert.AlertType.WARNING, "This utility contains flashing animations to indicate views that have been updated. Flashing can be disabled with the relevant checkbox found the top left.");
+        controller.showAlert(Alert.AlertType.WARNING, "This utility contains flashing animations to indicate views that have been updated. Flashing can be disabled with the relevant checkbox found the top left. You can also disable the pop-up confirmations in the same place.");
         controller.resetData();
         controller.reRenderGlobal();
     }

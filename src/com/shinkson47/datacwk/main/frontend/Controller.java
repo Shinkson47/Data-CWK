@@ -57,6 +57,7 @@ public class Controller extends FXMLController {
     public TextField txtRelMentee;
     public TextField txtRelMentor;
     public CheckBox chkAllowFlash;
+    public TextField txtTransferMentee;
     private Student selectedStudent = null;
     //#region FXML injections
     public TreeView<String> PoolTree;
@@ -290,7 +291,11 @@ public class Controller extends FXMLController {
         showAlert(Alert.AlertType.CONFIRMATION, selectedStudent + " no longer has a mentor!");
     }
 
-
+    public void opTransferMentees(ActionEvent actionEvent) {
+        if (!requireSelection()) return;
+        selectedStudent.transferMenteesTo(GUISearch(txtTransferMentee.getText()));
+        reRenderGlobal();
+    }
     //#endregion
 
 
@@ -333,6 +338,8 @@ public class Controller extends FXMLController {
     public void selectedSelect(MouseEvent mouseEvent) {
         selectStudent(lstSelectedMentees.getSelectionModel().getSelectedItem());
     }
+
+
 
 
     //#endregion
