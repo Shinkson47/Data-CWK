@@ -2,7 +2,6 @@ package com.shinkson47.datacwk.main;
 
 import com.shinkson47.datacwk.lib.collection.pool.StudentPool;
 import com.shinkson47.datacwk.lib.student.Student;
-import jdk.nashorn.internal.objects.Global;
 
 import java.util.ArrayList;
 

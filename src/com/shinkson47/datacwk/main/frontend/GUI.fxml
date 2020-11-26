@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1351.0" prefWidth="1951.0" styleClass="pane" stylesheets="@GUI.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shinkson47.datacwk.main.frontend.Controller">
+<AnchorPane prefHeight="1351.0" prefWidth="1951.0" styleClass="pane" stylesheets="@GUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shinkson47.datacwk.main.frontend.Controller">
    <children>
       <SplitPane dividerPositions="0.2" layoutX="116.0" layoutY="54.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -144,86 +153,94 @@
                                                       <Font name="System Bold" size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <TilePane hgap="20.0" layoutY="23.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
-                                                   <children>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="298.0" text="Reset Data">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #ff6666;" styleClass="pane">
+                                                <ScrollPane fitToWidth="true" minViewportHeight="1000.0" minViewportWidth="1000.0" prefHeight="200.0" prefViewportHeight="1000.0" prefViewportWidth="1000.0" prefWidth="200.0" styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="200.0" styleClass="pane">
+                                                         <children>
+                                                            <TilePane hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                                                                <children>
-                                                                  <Label layoutX="22.0" layoutY="1.0" prefHeight="54.0" prefWidth="253.0" text="Clear the database, and repopulate with the students from specification Table 1 " textAlignment="CENTER" wrapText="true" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#formatData" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: #ff6666;" text="Format Data Structure" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Button layoutX="122.0" layoutY="69.0" mnemonicParsing="false" onAction="#resetData" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: orange;" text="Reset Data Structure" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="298.0" text="Reset Data">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #ff6666;" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="22.0" layoutY="1.0" prefHeight="54.0" prefWidth="253.0" text="Clear the database, and repopulate with the students from specification Table 1 " textAlignment="CENTER" wrapText="true" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#formatData" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: #ff6666;" text="Format Data Structure" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Button layoutX="122.0" layoutY="69.0" mnemonicParsing="false" onAction="#resetData" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: orange;" text="Reset Data Structure" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                     <TilePane.margin>
+                                                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                                     </TilePane.margin>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Search and Select">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                                                                              <TextField fx:id="txtSearchSelectP" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opSearchAndSelect" prefHeight="29.0" prefWidth="168.0" text="Search and Select" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Performs an automatic search of the global pool, and selects the matching student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Create a new Student">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                                                                              <TextField fx:id="txtInstantiate" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opInstantiate" prefHeight="29.0" prefWidth="168.0" text="Instantiate to pool" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Instantiates a new student into the global pool with the specified ID, and no relationships." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="200.0" prefWidth="338.0" text="Define a Mentor/Mentee relationship">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutY="14.0" text="Mentor's P:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                                                                              <TextField fx:id="txtRelMentor" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDefineRel" prefHeight="29.0" prefWidth="168.0" text="Define Relationship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Updates relationships to create a mentor/mentee relationship" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                              <Label layoutX="25.0" layoutY="86.0" text="Mentee's P:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                                                                              <TextField fx:id="txtRelMentee" layoutX="147.0" layoutY="89.0" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Determine is Mentee">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                                                                              <TextField fx:id="txtDetMentee" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDetMentee" prefHeight="29.0" prefWidth="168.0" text="Determine Menteeship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="21.4" layoutY="20.4" prefHeight="22.0" prefWidth="315.0" text="Determines if the student is a Mentee" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Determine is Mentor">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                                                                              <TextField fx:id="txtDetMentor" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDetMentor" prefHeight="29.0" prefWidth="168.0" text="Determine Mentorship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="21.4" layoutY="20.4" prefHeight="22.0" prefWidth="315.0" text="Determines if the student is a Mentor" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
                                                                </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                         <TilePane.margin>
-                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                         </TilePane.margin>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Search and Select">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
-                                                                  <TextField fx:id="txtSearchSelectP" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opSearchAndSelect" prefHeight="29.0" prefWidth="168.0" text="Search and Select" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Performs an automatic search of the global pool, and selects the matching student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Create a new Student">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
-                                                                  <TextField fx:id="txtInstantiate" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opInstantiate" prefHeight="29.0" prefWidth="168.0" text="Instantiate to pool" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Instantiates a new student into the global pool with the specified ID, and no relationships." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="200.0" prefWidth="338.0" text="Define a Mentor/Mentee relationship">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutY="14.0" text="Mentor's P:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
-                                                                  <TextField fx:id="txtRelMentor" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDefineRel" prefHeight="29.0" prefWidth="168.0" text="Define Relationship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="21.4" layoutY="20.4" prefHeight="36.0" prefWidth="315.0" text="Updates relationships to create a mentor/mentee relationship" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                                  <Label layoutX="25.0" layoutY="86.0" text="Mentee's P:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                                                                  <TextField fx:id="txtRelMentee" layoutX="147.0" layoutY="89.0" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Determine is Mentee">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
-                                                                  <TextField fx:id="txtDetMentee" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDetMentee" prefHeight="29.0" prefWidth="168.0" text="Determine Menteeship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="21.4" layoutY="20.4" prefHeight="22.0" prefWidth="315.0" text="Determines if the student is a Mentee" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="162.0" prefWidth="338.0" text="Determine is Mentor">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutY="14.0" text="P Number:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
-                                                                  <TextField fx:id="txtDetMentor" layoutX="91.20000000000005" layoutY="37.8" promptText="P#######" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opDetMentor" prefHeight="29.0" prefWidth="168.0" text="Determine Mentorship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="21.4" layoutY="20.4" prefHeight="22.0" prefWidth="315.0" text="Determines if the student is a Mentor" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                   </children>
-                                                </TilePane>
+                                                            </TilePane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </ScrollPane>
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -232,83 +249,91 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
                                              <children>
+                                                <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="200.0" styleClass="pane">
+                                                         <children>
+                                                            <TilePane hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                                               <children>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="298.0" text="Unenrole Selected Student">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #ff6666;" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="22.0" layoutY="1.0" prefHeight="54.0" prefWidth="253.0" text="Decomposes relationships and removes student from the data structure." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                                                                              <Button layoutX="122.0" layoutY="69.0" mnemonicParsing="false" onAction="#opUnenrole" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: #ffacac;" text="Permenantly delete the selected student" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="344.0" text="Mutate Mentor">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="3.0" prefHeight="54.0" prefWidth="253.0" text="Alters the mentor of the selected student with another in the pool; identified by thier P" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                              <Button layoutX="8.0" layoutY="107.0" mnemonicParsing="false" onAction="#opUpdateMentor" prefHeight="29.0" prefWidth="274.0" text="Update Mentor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                                              <TextField fx:id="txtUpdateMentor" layoutX="113.0" layoutY="64.0" promptText="P#######" AnchorPane.leftAnchor="152.60000000000002" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0" />
+                                                                              <Label layoutX="-13.0" layoutY="62.0" text="P# of the new mentor:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Add a Mentee">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="30.0" layoutY="66.0" text="P Number:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
+                                                                              <TextField fx:id="txtUpdateMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opUpdateMentee" prefHeight="29.0" prefWidth="168.0" text="Add as a mentee" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Adds a student from the pool as a mentee of the selected student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Move Mentees to another Student">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="30.0" layoutY="66.0" text="P# of the new mentor:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
+                                                                              <TextField fx:id="txtTransferMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opTransferMentees" prefHeight="29.0" prefWidth="168.0" text="Transfer Mentees" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Removes all mentees from this student, and adds them to another" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Remove a Mentee">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Label layoutX="30.0" layoutY="66.0" text="P Number:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
+                                                                              <TextField fx:id="txtRemoveMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opRemoveMentee" prefHeight="29.0" prefWidth="168.0" text="Revoke Menteeship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Removes a mentee from the selected student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                                  <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Clear Mentor">
+                                                                     <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
+                                                                           <children>
+                                                                              <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opClearMentor" prefHeight="29.0" prefWidth="168.0" text="Revoke Mentor" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                                                              <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Decomposes the relationship between the selected student and thier mentor" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                     </content>
+                                                                  </TitledPane>
+                                                               </children>
+                                                            </TilePane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </ScrollPane>
                                                 <Label layoutX="1.0" prefHeight="22.0" prefWidth="280.0" text="Perform operations on the selected student" textFill="#6f6f6f">
                                                    <font>
                                                       <Font name="System Bold" size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <TilePane hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-                                                   <children>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="298.0" text="Unenrole Selected Student">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #ff6666;" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutX="22.0" layoutY="1.0" prefHeight="54.0" prefWidth="253.0" text="Decomposes relationships and removes student from the data structure." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                                                                  <Button layoutX="122.0" layoutY="69.0" mnemonicParsing="false" onAction="#opUnenrole" prefHeight="29.0" prefWidth="168.0" style="-fx-text-fill: #ffacac;" text="Permenantly delete the selected student" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="344.0" text="Mutate Mentor">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutX="3.0" prefHeight="54.0" prefWidth="253.0" text="Alters the mentor of the selected student with another in the pool; identified by thier P" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                                  <Button layoutX="8.0" layoutY="107.0" mnemonicParsing="false" onAction="#opUpdateMentor" prefHeight="29.0" prefWidth="274.0" text="Update Mentor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                                                  <TextField fx:id="txtUpdateMentor" layoutX="113.0" layoutY="64.0" promptText="P#######" AnchorPane.leftAnchor="152.60000000000002" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0" />
-                                                                  <Label layoutX="-13.0" layoutY="62.0" text="P# of the new mentor:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Add a Mentee">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutX="30.0" layoutY="66.0" text="P Number:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
-                                                                  <TextField fx:id="txtUpdateMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opUpdateMentee" prefHeight="29.0" prefWidth="168.0" text="Add as a mentee" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Adds a student from the pool as a mentee of the selected student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Move Mentees to another Student">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutX="30.0" layoutY="66.0" text="P# of the new mentor:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
-                                                                  <TextField fx:id="txtTransferMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opTransferMentees" prefHeight="29.0" prefWidth="168.0" text="Transfer Mentees" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Removes all mentees from this student, and adds them to another" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Remove a Mentee">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Label layoutX="30.0" layoutY="66.0" text="P Number:" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="30.0" />
-                                                                  <TextField fx:id="txtRemoveMentee" layoutX="191.0" layoutY="62.0" promptText="P#######" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="192.60000000000002" AnchorPane.rightAnchor="10.0" />
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opRemoveMentee" prefHeight="29.0" prefWidth="168.0" text="Revoke Menteeship" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Removes a mentee from the selected student." textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" collapsible="false" prefHeight="178.0" prefWidth="384.0" text="Clear Mentor">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane">
-                                                               <children>
-                                                                  <Button layoutX="112.0" layoutY="59.0" mnemonicParsing="false" onAction="#opClearMentor" prefHeight="29.0" prefWidth="168.0" text="Revoke Mentor" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                                                  <Label layoutX="43.0" layoutY="5.0" prefHeight="54.0" prefWidth="253.0" text="Decomposes the relationship between the selected student and thier mentor" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                   </children>
-                                                </TilePane>
                                              </children>
                                           </AnchorPane>
                                     </content>

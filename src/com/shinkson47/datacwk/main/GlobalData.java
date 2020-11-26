@@ -39,6 +39,9 @@ public class GlobalData {
             "P2530250"
     };
 
+    /**
+     * <h2>Configures the relationships as found in the specification at Table 1</h2>
+     */
     public static void CreateDefaultRelationships() {
 
         // Level 6

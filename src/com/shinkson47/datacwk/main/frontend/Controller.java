@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * <h1>Utility methods for the JFX GUI tool.</h1>
  * <br>
  * <p>
- *
+ * A messy but functional class that provides the front end utility in the GUI Demo
  * </p>
  *
  * @author <a href="https://www.shinkson47.in">Jordan T. Gray on 20/11/2020</a>
@@ -59,6 +59,7 @@ public class Controller extends FXMLController {
     public CheckBox chkAllowFlash;
     public TextField txtTransferMentee;
     private Student selectedStudent = null;
+
     //#region FXML injections
     public TreeView<String> PoolTree;
     public ListView<String> PoolList;
